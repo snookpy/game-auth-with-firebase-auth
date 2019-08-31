@@ -1,5 +1,18 @@
-
 const guideList = document.querySelector('.guides')
+const loggedOutLinks = document.querySelectorAll('.logged-out')
+const loggedInLink = document.querySelectorAll('.logged-in')
+
+const setupUI = (user) => {
+    if(user) {
+        // toggle UI elements
+        loggedInLink.forEach(item => item.style.display = 'block')
+        loggedOutLinks.forEach(item => item.style.display = 'none')
+    } else {
+        loggedInLink.forEach(item => item.style.display = 'none')
+        loggedOutLinks.forEach(item => item.style.display = 'block')
+    }
+}
+
 
 //setting up guides
 const setupGuides = (data) => {
@@ -21,12 +34,6 @@ const setupGuides = (data) => {
         guideList.innerHTML = `<h5 class="center-align">login to view guides</h5>`
     }
 }
-
-{/* <li>
-    <div class="collapsible-header grey lighten-4">Guide title</div>
-    <div class="collapsible-body white">Lorem ipsum dolor sit amet.</div>
-</li> */}
-
 
 document.addEventListener('DOMContentLoaded', function() {
 
